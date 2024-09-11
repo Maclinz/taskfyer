@@ -47,7 +47,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     path: "/",
     httpOnly: true,
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    sameSite: "lax",
+    sameSite: "none",
     secure: false,
   });
 
@@ -107,8 +107,8 @@ export const loginUser = asyncHandler(async (req, res) => {
       path: "/",
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
     });
 
     // send back the user and token in the response to the client

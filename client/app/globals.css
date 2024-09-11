@@ -2,46 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f9f9f9;
-  height: 100vh;
-  position: relative;
-}
-
-.auth-page {
-  height: 100vh;
-  background: url("../public/glass-bg.png") no-repeat center center fixed;
-}
-
-form {
-  position: relative;
-  box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.08);
-}
-
-form > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0.12;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Utilities */
-.u-triangle::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -7px;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 8px solid #3aafae;
-  transform: translateY(-50%);
-}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -97,11 +57,48 @@ form > img {
     --chart-5: 340 75% 55%;
   }
 }
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+
+body {
+  background-color: #f9f9f9;
+  height: 100vh;
+  position: relative;
+}
+
+.auth-page {
+  height: 100vh;
+  background: url("../public/glass-bg.png") no-repeat center center fixed;
+}
+
+.auth-page form {
+  position: relative;
+  box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.auth-page img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.12;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-layout::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Utilities */
+.u-triangle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 8px solid #3aafae;
+  transform: translateY(-50%);
 }

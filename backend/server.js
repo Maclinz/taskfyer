@@ -15,7 +15,7 @@ const app = express();
 // middleware
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://taskfyer.vercel.app",
     credentials: true,
   })
 );

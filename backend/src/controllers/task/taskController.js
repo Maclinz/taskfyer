@@ -142,3 +142,28 @@ export const deleteTask = asyncHandler(async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+/// Nuclear option for deleting all tasks
+export const deleteAllTasks = asyncHandler(async (req, res) => {
+  try {
+    const userId = req.user._id;
+
+    const tasks = await TaskModel.find({ user: userId });
+
+    if (!tasks) {
+      res.status(404).json({ message: "No tasks found!" });
+    }
+
+    // check if the user is the owner of the task
+    if (!tasks.user.equals(userId)) {
+      res.status(401).json({ message: "Not authorized!" });
+    }
+
+    await TaskModel.deleteMany({ user: userId });
+
+    return res.status(200).json({ message: "All tasks deleted successfully!" });
+  } catch (error) {
+    console.log("Error in deleteAllTasks: ", error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
